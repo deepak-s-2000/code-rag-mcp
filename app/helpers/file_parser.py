@@ -6,7 +6,6 @@ import tree_sitter_javascript as ts_javascript
 import os
 import csv
 import json
-from app.db.tree_sitter_chunks_DAO import TreeSitterChunksDAO
 from app.beans.chunks import Chunks
 
 class FileParser:
@@ -40,10 +39,8 @@ class FileParser:
             root_node = tree.root_node
             return self.extract_chunks(node=root_node, code=code)
         elif ext == ".csv":
-            # CSV parsing
             return self.parse_csv(self.file_path)
         elif ext == ".json":
-            # JSON parsing
             return self.parse_json(self.file_path)
         else:
             print(f"Unsupported file type: {ext}")
@@ -101,15 +98,3 @@ class FileParser:
                 )
                 chunks.append(chunk)
         return chunks
-
-# Example usage
-# async def main():
-#     file_path = "codebase/python_codebase/fastapi-with-mongodb/app/api/dependencies/dependency_category.py"
-#     chunks = FileParser(file_path).parse_file(file_path)
-#     for chunk in chunks:
-#         dao = TreeSitterChunksDAO()
-#         await dao.insert_chunk(chunk)
-#         print(f"Type: {chunk['type']}, Content:\n{chunk['content']}\n")
-# if __name__ == "__main__":
-#     import asyncio
-#     asyncio.run(main())
