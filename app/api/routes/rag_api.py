@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from app.rag.vector_embedding import VectorEmbedding
-from app.config import RAGConfig
 import asyncio
 import logging
 

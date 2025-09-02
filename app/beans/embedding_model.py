@@ -8,6 +8,3 @@ class EmbeddingModelSingleton:
         if cls._instance is None:
             cls._instance = SentenceTransformer(model_name)
         return cls._instance
-
-# Usage:
-# model = EmbeddingModelSingleton.get_model()

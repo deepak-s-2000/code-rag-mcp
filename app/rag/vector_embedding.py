@@ -1,7 +1,4 @@
-from sentence_transformers import SentenceTransformer
-import faiss
 import numpy as np
-from torch import embedding
 from app.config import RAGConfig
 from app.beans.embedding_model import EmbeddingModelSingleton
 from app.rag.faiss.vector_store import VectorStore
@@ -29,10 +26,6 @@ class VectorEmbedding:
         return self.model.encode([text], convert_to_numpy=True)
 
     async def clear_faiss_index(self):
-        # if self.faiss_index is not None:
-        #     await self.faiss_index.load_index()
-        #     await self.faiss_index.clear_index()
-        #     await self.faiss_index.save_index()
         index_path = RAGConfig().faiss_filepath
         if os.path.exists(index_path):
             os.remove(index_path)
