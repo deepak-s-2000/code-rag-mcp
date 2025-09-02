@@ -1,0 +1,15 @@
+fastapi
+pymongo
+asyncio
+tree-sitter
+tree-sitter-python
+tree-sitter-cpp
+tree-sitter-java
+tree-sitter-javascript
+uvicorn
+apscheduler
+requests
+transformers
+sentence-transformers
+faiss-cpu
+fastapi-mcp

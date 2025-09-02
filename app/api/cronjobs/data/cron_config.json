@@ -1,0 +1,7 @@
+[
+    {
+        "url": "refresh-vectors",
+        "method": "POST",
+        "cron":"0 */5 * * * *"
+    }
+]
